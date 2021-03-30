@@ -70,61 +70,61 @@ void printBFStraversal(vector<int> adj[], int v, int start)
 void printBFS(vector<int> adj[], int n, int s)
 {
     bool visited[n];
-    for(int i=0;i<n;i++)
-        visited[i]=false;
+    for (int i = 0; i < n; i++)
+        visited[i] = false;
     queue<int> q;
     q.push(s);
-    visited[s]=true;
-    while(!q.empty())
+    visited[s] = true;
+    while (!q.empty())
     {
-         s=q.front();
-        cout<<s<<"->";
+        s = q.front();
+        cout << s << "->";
         q.pop();
-        for(auto it=adj[s].begin();it!=adj[s].end();it++)
+        for (auto it = adj[s].begin(); it != adj[s].end(); it++)
         {
-            if(!visited[*it])
+            if (!visited[*it])
             {
-                visited[*it]=true;
+                visited[*it] = true;
                 q.push(*it);
             }
         }
 
     }
-    cout<<endl;
+    cout << endl;
 }
 //cycle healper function
-bool isCycleByDFSHealper(vector<int> adj[],vector<bool> &visited, vector<bool> &s, int i)
+bool isCycleByDFSHealper(vector<int> adj[], vector<bool> &visited, vector<bool> &s, int i)
 {
-    if(!visited[i])
+    if (!visited[i])
     {
-        s[i]=true;
-        visited[i]=true;
-       for(auto it=adj[i].begin();it!=adj[i].end();it++)
-       {
-          if(!visited[*it] && isCycleByDFSHealper(adj,visited,s,*it))
-              return true;
-          else if(!s[*it])
-            return true;
-       }
+        s[i] = true;
+        visited[i] = true;
+        for (auto it = adj[i].begin(); it != adj[i].end(); it++)
+        {
+            if (!visited[*it] && isCycleByDFSHealper(adj, visited, s, *it))
+                return true;
+            else if (!s[*it])
+                return true;
+        }
     }
-     s[i]=false;
-     return false;
+    s[i] = false;
+    return false;
 }
 //finding cycle function
-bool isCycleByDFS(vector<int> adj[],int n)
+bool isCycleByDFS(vector<int> adj[], int n)
 {
     vector<bool> visited;
     vector<bool> s;
-    for(int i=0;i<n;i++)
+    for (int i = 0; i < n; i++)
     {
         visited.push_back(false);
         s.push_back(false);
     }
 
-    for(int i=0;i<n;i++)
+    for (int i = 0; i < n; i++)
     {
-        if(isCycleByDFSHealper(adj,visited,s,i))
-         return true;
+        if (isCycleByDFSHealper(adj, visited, s, i))
+            return true;
     }
     return false;
 
@@ -135,26 +135,26 @@ bool isCycleByBFS(vector<int> adj[], int n)
     vector<bool> visited;
     vector<bool> s;
     queue<int> q;
-    for(int i=0;i<n;i++)
+    for (int i = 0; i < n; i++)
     {
         visited.push_back(false);
         s.push_back(false);
     }
     q.push(0);
-    while(!q.empty())
+    while (!q.empty())
     {
-        int a=q.front();
+        int a = q.front();
         q.pop();
-        if(!visited[a])
+        if (!visited[a])
         {
-            s[a]=false;
-            visited[a]=false;
+            s[a] = false;
+            visited[a] = false;
         }
-        for(auto it=adj[a].begin();it!=adj[a].end();it++)
+        for (auto it = adj[a].begin(); it != adj[a].end(); it++)
         {
-            if(visited[*it] && s[*it])
+            if (visited[*it] && s[*it])
                 return true;
-            else if(visited[*it] && !s[*it])
+            else if (visited[*it] && !s[*it])
                 return false;
             q.push(*it);
         }
@@ -164,6 +164,8 @@ bool isCycleByBFS(vector<int> adj[], int n)
 int main()
 {
     int n = 5;
+
+    //this is making arra of vectors
     vector<int> arrofvector[n];
     addEdge(arrofvector, 0, 1);
     addEdge(arrofvector, 0, 4);
@@ -173,9 +175,9 @@ int main()
     addEdge(arrofvector, 2, 3);
     addEdge(arrofvector, 3, 4);
     //pritGraphSequentially(arrofvector,n);
-   // printDFStraversal(arrofvector, n);
-   // printBFS(arrofvector,n,0);
+    // printDFStraversal(arrofvector, n);
+    // printBFS(arrofvector,n,0);
     //cout<<isCycleByDFS(arrofvector,n)<<endl;
-    cout<<isCycleByBFS(arrofvector,n)<<endl;
+    cout << isCycleByBFS(arrofvector, n) << endl;
     return 0;
 }
