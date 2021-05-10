@@ -18,6 +18,7 @@ void addEdge(vector<int> adj[], int start, int dest)
     adj[start].push_back(dest);
     adj[dest].push_back(start);
 }
+
 //healper function of dfs traversal
 void DFShealper(vector<bool> &visited, vector<int> adj[], int currvertex)
 {
@@ -29,6 +30,7 @@ void DFShealper(vector<bool> &visited, vector<int> adj[], int currvertex)
             DFShealper(visited, adj, adj[currvertex][i]);
     }
 }
+
 //function for dfs traversal of graph
 void printDFStraversal(vector<int> adj[], int n)
 {
@@ -39,6 +41,7 @@ void printDFStraversal(vector<int> adj[], int n)
             DFShealper(visited, adj, i);
     }
 }
+
 //bfs traversal healper function
 /*
 void BFShealper(vector<int> adj[],vector<bool> &visited,queue<int> &q, int start)
@@ -67,6 +70,7 @@ void printBFStraversal(vector<int> adj[], int v, int start)
         BFShealper(adj,visited,q,start);
 }
 */
+
 void printBFS(vector<int> adj[], int n, int s)
 {
     bool visited[n];
@@ -92,6 +96,7 @@ void printBFS(vector<int> adj[], int n, int s)
     }
     cout << endl;
 }
+
 //cycle healper function
 bool isCycleByDFSHealper(vector<int> adj[], vector<bool> &visited, vector<bool> &s, int i)
 {
@@ -110,6 +115,7 @@ bool isCycleByDFSHealper(vector<int> adj[], vector<bool> &visited, vector<bool> 
     s[i] = false;
     return false;
 }
+
 //finding cycle function
 bool isCycleByDFS(vector<int> adj[], int n)
 {
@@ -129,6 +135,7 @@ bool isCycleByDFS(vector<int> adj[], int n)
     return false;
 
 }
+
 //function of is cycle by bfs
 bool isCycleByBFS(vector<int> adj[], int n)
 {
@@ -161,6 +168,7 @@ bool isCycleByBFS(vector<int> adj[], int n)
     }
     return false;
 }
+
 int main()
 {
     int n = 5;

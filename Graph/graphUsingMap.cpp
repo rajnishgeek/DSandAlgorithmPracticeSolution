@@ -3,13 +3,14 @@ using namespace std;
 
 class Graph
 {
-    public:
-    map<int,vector<int>> *adj;
+public:
+    map<int, vector<int>> *adj;
     void Graph()
     {
-        adj=map<int,vector<int>>
+        adj = map<int, vector<int>>
     }
 }
+
 int main()
 {
     Graph graph;
