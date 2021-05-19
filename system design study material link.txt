@@ -1,0 +1,3 @@
+gaurav sen: https://www.youtube.com/watch?v=xpDnVSmNFX0&list=PLMCXHnjXnTnvo6alSjVkgxV-VH6EPyvoX
+educative.io: https://www.educative.io/courses/grokking-the-system-design-interview
+system design primer: https://github.com/donnemartin/system-design-primer

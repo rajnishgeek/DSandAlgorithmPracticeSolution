@@ -32,3 +32,5 @@ int CountpathWithGoodNodes(vector<int> A, vector<vector<int>> &B, int C)
 			dfs(A, adj, it, visited, count, path, C);
 	return path;
 }
+
+
