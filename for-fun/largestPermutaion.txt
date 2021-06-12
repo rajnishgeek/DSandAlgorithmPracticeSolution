@@ -1,0 +1,19 @@
+ largestPermutaion(vector<int> v, int swaps)
+{
+   if(swap==0 || v.size()==0 || v.size()==1)
+      return v;
+   int i=0,j=v.size()-1;
+   while(i<j && swaps)
+   {
+      if(v[i]<v[j])
+      {
+         swap(v[i],v[j]);
+         i++;
+         j--;
+         swaps--;
+      }
+      else
+        j--;
+   }
+   return v;
+}

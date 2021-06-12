@@ -1,0 +1,24 @@
+int minJump(string A)
+{
+   vector<int> indexes;
+   for(int i=0;i<A.size();i++)
+    if(A[i]=='x')
+      indexes.push_back(i);
+   
+   if(indexes.size()==0)
+    return 0;
+   int jumpCount=0, aprrox=1, median=indexes.size()/2;
+   for(int i=0;i<median;i++)
+   {
+      jumpCount=(jumpCount+indexes[midian]-indexes[i]-aprrox)%MOD;
+      approx++;
+   }
+   
+   approx=1;
+   for(int i=median+1;i<indexes.size();i++)
+   {
+      jumpCount=(jumpCount+indexes[i]-indexes[median]-approx)%MOD;
+      approx++;
+   }
+   return jumpCount%MOD;
+}

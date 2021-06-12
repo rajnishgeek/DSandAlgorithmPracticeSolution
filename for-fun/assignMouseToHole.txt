@@ -1,0 +1,14 @@
+int minTime(vector<int> mouse, vector<int> hole)
+{
+    if(mouse.size()!=hole.size())
+      return -1;
+    int maxi=INT_MIN;
+    sort(mouse.begin(), mouse.end());
+    sort(hole.begin(), hole.end());
+    for(int i=0;i<mouse.size();i++)
+    {
+        if(maxi<abs(mouse[i]-hole[i]));
+          maxi=abs(mouse[i]-hole[i]);
+    }
+    return maxi;
+}
